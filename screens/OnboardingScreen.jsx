@@ -29,12 +29,12 @@ const OnboardingScreen = () => {
         <Onboarding
           onDone = {handleDone}
           onSkip = {handleDone}
-          bottomBarHighlight = {false}
+          bottomBarHighlight = {false} // For the Bar Highlight
           DoneButtonComponent = {doneButton}
           containerStyles={{ paddingHorizontal: 25}}
           pages={[
             {
-              backgroundColor: '#41F167',
+              backgroundColor: '#20963AB0',
               image: 
                   <View
                     style={styles.lottie}
@@ -75,7 +75,7 @@ const OnboardingScreen = () => {
       </View>
   );
 };
-
+// The Respective Styles
 const styles = StyleSheet.create({
   container:{
       flex:1,
