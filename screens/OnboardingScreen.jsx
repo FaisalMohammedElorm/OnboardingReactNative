@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 import LottieView from 'lottie-react-native';
 import { useNavigation } from '@react-navigation/native';
@@ -14,11 +14,23 @@ const OnboardingScreen = () => {
   const handleDone = () => {
     navigation.navigate("Home")
   }
+
+  const doneButton = ({...props}) => {
+    return (
+
+      <TouchableOpacity style={styles.doneButton} {...props}>
+        <Text>Done</Text>
+      </TouchableOpacity>
+    )
+    
+  } 
   return (
       <View style={styles.container}>
         <Onboarding
           onDone = {handleDone}
           onSkip = {handleDone}
+          bottomBarHighlight = {false}
+          DoneButtonComponent = {doneButton}
           containerStyles={{ paddingHorizontal: 25}}
           pages={[
             {
@@ -73,6 +85,12 @@ const styles = StyleSheet.create({
   lottie:{
     width: width*0.9,
     height: width,
+  },
+  doneButton:{
+    padding:20,
+    backgroundColor:"lavender",
+    borderTopLeftRadius:"100%",
+    borderBottomLeftRadius:"100%",
   }
 });
 export default OnboardingScreen;
